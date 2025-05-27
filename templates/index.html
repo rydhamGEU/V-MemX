@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>V-MemX – Page Replacement Simulator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col justify-center items-center">
+  <div class="w-full max-w-md bg-gray-800 p-6 rounded-xl shadow-lg">
+    <h1 class="text-2xl font-bold mb-4 text-center text-cyan-400">V-MemX Simulator<br>By PBL Team -> SE(OS)-VI-T238</h1>
+
+    {% if error %}
+      <p class="text-red-400 mb-4">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" class="space-y-4">
+      <div>
+        <label class="block mb-1">Page Reference String (space separated)</label>
+        <input name="pages" required class="w-full p-2 rounded bg-gray-700 text-white" placeholder="e.g. 7 0 1 2 0 3 0 4 2" />
+      </div>
+
+      <div>
+        <label class="block mb-1">Number of Frames</label>
+        <input name="frames" type="number" required min="1" class="w-full p-2 rounded bg-gray-700 text-white" />
+      </div>
+
+      <div>
+        <label class="block mb-1">Algorithm</label>
+        <select name="algorithm" class="w-full p-2 rounded bg-gray-700 text-white">
+          <option value="LRU">LRU</option>
+          <option value="FIFO">FIFO</option>
+          <option value="Optimal">Optimal</option>
+        </select>
+      </div>
+
+      <button type="submit" class="w-full py-2 px-4 bg-cyan-500 hover:bg-cyan-600 rounded font-semibold">Simulate</button>
+    </form>
+  </div>
+</body>
+</html>
